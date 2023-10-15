@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "235708871370",
+    "firebase_url": "https://recipebucket-a9125-default-rtdb.firebaseio.com",
+    "project_id": "recipebucket-a9125",
+    "storage_bucket": "recipebucket-a9125.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235708871370:android:9e53d63787686bc1e3ba33",
+        "android_client_info": {
+          "package_name": "com.example.recipebucket"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCz2agETwS4i0DKR4FMLj5T4eVhVZ1yEhE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
