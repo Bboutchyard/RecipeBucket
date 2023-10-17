@@ -1,0 +1,8 @@
+15:28:27.552 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+15:28:27.659 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
+15:28:28.360 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.NamespaceActor - recipebucket-a9125-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 77ms, init: 0ms
+15:28:28.399 [NamespaceSystem-blocking-namespace-operation-dispatcher-6] INFO com.firebase.core.namespace.StateManager - Namespace recipebucket-a9125-default-rtdb status Active to Active
+15:32:35.655 [Thread-0] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.
+15:32:35.660 [NamespaceSystem-akka.actor.default-dispatcher-9] INFO com.firebase.core.namespace.Terminator$Terminator - 1 actors left to terminate: recipebucket-a9125-default-rtdb
+15:32:35.666 [NamespaceSystem-akka.actor.default-dispatcher-11] INFO com.firebase.core.namespace.NamespaceActor - stopped namespace actor for recipebucket-a9125-default-rtdb
+15:32:35.670 [Thread-0] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.
