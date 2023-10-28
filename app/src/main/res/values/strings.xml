@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">RecipeBucket</string>
+    <string-array name="measurementsArray">
+        <item>oz</item>
+        <item>lb</item>
+        <item>fl oz</item>
+        <item>tsp</item>
+        <item>tbsp</item>
+        <item>cup</item>
+        <item>qt</item>
+        <item>gal</item>
+    </string-array>
+    <string name="recipeTitle">Recipes</string>
+    <string name="recipeName"></string>
+    <string name="descImg">Image of recipe</string>
+    <string name="btnAddRecipe">Button to add recipe</string>
 </resources>

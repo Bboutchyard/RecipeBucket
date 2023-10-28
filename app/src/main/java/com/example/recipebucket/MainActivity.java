@@ -6,17 +6,15 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     TextInputEditText editTextEmail, editTextPassword;
     Button buttonReg, buttonLogin;
-    FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,18 +26,8 @@ public class MainActivity extends AppCompatActivity {
         buttonReg = findViewById(R.id.btnRegisterScreen);
         buttonLogin = findViewById(R.id.btnLogin);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
-            private void onComplete(Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(MainActivity.this, "Authentication successful.",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(MainActivity.this, "Authentication failed.",
-                            Toast.LENGTH_SHORT).show();
-                }
-            }
-
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 String email, password;
                 email = String.valueOf(editTextEmail.getText());
                 password = String.valueOf(editTextPassword.getText());
@@ -53,10 +41,25 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this::onComplete);
+                // Check if the user is already signed in
+                FirebaseUser user = mAuth.getCurrentUser();
+                if (user != null) {
+                    Toast.makeText(MainActivity.this, "You've signed in successfully", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(MainActivity.this, recipes.class));
+                } else {
+                    // Perform the sign-in operation
+                    mAuth.signInWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(MainActivity.this, task -> {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(MainActivity.this, "You've signed in successfully", Toast.LENGTH_LONG).show();
+                                    startActivity(new Intent(MainActivity.this, recipes.class));
+                                } else {
+                                    Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                }
             }
         });
-
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
