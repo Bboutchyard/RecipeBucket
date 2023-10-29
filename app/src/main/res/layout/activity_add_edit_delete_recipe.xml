@@ -6,50 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".addEditDeleteRecipe">
 
-    <ImageView
-        android:id="@+id/addRecipeImage"
-        android:layout_width="111dp"
-        android:layout_height="94dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="602dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:contentDescription="Add your recipe image"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout3"
         android:layout_width="408dp"
         android:layout_height="57dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="53dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout4"
+        app:layout_constraintBottom_toTopOf="@+id/layoutIngredient"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addRecipeImage">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtRecipeName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Recipe name"/>
+            android:hint="Recipe name" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout4"
+        android:id="@+id/layoutIngredient"
         android:layout_width="162dp"
         android:layout_height="64dp"
-        android:layout_marginBottom="427dp"
+        android:layout_marginBottom="480dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtQuantity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
@@ -58,49 +40,41 @@
             android:layout_width="158dp"
             android:layout_height="56dp"
             android:hint="Ingredient name" />
+
+        <EditText
+            android:id="@+id/txtQuantity"
+            android:layout_width="90dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="480dp"
+            android:ems="10"
+            android:hint="Quantity"
+            android:inputType="number" />
+
+        <Spinner
+            android:id="@+id/spinnerMeasurement"
+            android:layout_width="129dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="480dp"
+            android:dropDownWidth="wrap_content"
+            android:entries="@array/measurementsArray"
+            android:spinnerMode="dropdown" />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <Spinner
-        android:id="@+id/spinnerMeasurement"
-        android:layout_width="129dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="428dp"
-        android:dropDownWidth="wrap_content"
-        android:entries="@array/measurementsArray"
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtQuantity"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
-
-    <EditText
-        android:id="@+id/txtQuantity"
-        android:layout_width="90dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="430dp"
-        android:ems="10"
-        android:hint="Quantity"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/spinnerMeasurement"
-        app:layout_constraintStart_toEndOf="@+id/textInputLayout4"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
     <TextView
         android:id="@+id/txtRecipeDescription"
         android:layout_width="389dp"
         android:layout_height="280dp"
         android:layout_marginStart="11dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="11dp"
         android:layout_marginBottom="126dp"
         android:hint="Enter your recipe directions here..."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutIngredient" />
 
     <Button
         android:id="@+id/btnBackToRecipes"
@@ -129,5 +103,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnBackToRecipes"
         app:layout_constraintTop_toBottomOf="@+id/txtRecipeDescription" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddIngredient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="177dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="178dp"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/txtRecipeDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutIngredient"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
