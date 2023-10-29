@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.os.Bundle;
-import android.widget.GridLayout;
+import android.util.Log;
+import androidx.gridlayout.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -24,17 +26,20 @@ public class recipes extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_recipes);
 
         // Your code to fetch data from Firestore goes here
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        CollectionReference recipesRef = db.collection("recipes");
+        CollectionReference recipesRef = db.collection("recipe");
 
         recipesRef.get()
+
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         List<Recipe> recipeList = new ArrayList<>();
+                        Log.d("FirestoreQuery", "Fetching data from Firestore");
 
                         for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                             Recipe recipe = document.toObject(Recipe.class);
@@ -56,7 +61,8 @@ public class recipes extends AppCompatActivity {
                                     LinearLayout.LayoutParams.MATCH_PARENT,
                                     LinearLayout.LayoutParams.WRAP_CONTENT
                             ));
-                            descriptionTextView.setText(recipe.getDescription());
+                            descriptionTextView.setText(recipe.getDirections());
+                            Log.d("directions", descriptionTextView.getText().toString());
 
                             // Add the TextView to the CardView
                             cardView.addView(descriptionTextView);
@@ -71,6 +77,16 @@ public class recipes extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         // Handle any errors that occur during the fetch.
+
+                        // For example, you can log the error message for debugging purposes:
+                        Log.e("FirestoreFetch", "Error fetching recipes: " + e.getMessage());
+
+                        // You can also display a message to the user indicating the error.
+                        // For simplicity, we're using a Toast in this example:
+                        Toast.makeText(recipes.this, "Error fetching recipes. Please try again later.", Toast.LENGTH_SHORT).show();
+
+                        // Additionally, you might want to hide or update UI elements to indicate the error.
+                        // For instance, you can hide a progress bar or display a retry button.
                     }
                 });
 
