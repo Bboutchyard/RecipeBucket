@@ -20,8 +20,6 @@ public class recipeAdapter {
     public void addRecipeToFirestore(String recipeName, int servings, List<Map<String, Object>> ingredients, List<String> instructions) {
         Map<String, Object> recipeData = new HashMap<>();
         recipeData.put("recipeName", recipeName);
-        recipeData.put("servings", servings);
-        recipeData.put("ingredients", ingredients);
         recipeData.put("instructions", instructions);
 
         db.collection("recipes")

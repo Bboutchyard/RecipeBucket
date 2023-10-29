@@ -13,18 +13,6 @@ public class database {
     public void setRecipeName() {
         //To do
     }
-    public void getIngredients() {
-        //To do
-    }
-    public void setIngredients() {
-        //To do
-    }
-    public void getMeasurement() {
-        //To do
-    }
-    public void setMeasurement() {
-        //To do
-    }
     public void getInstructions() {
         //To do
     }

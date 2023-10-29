@@ -14,7 +14,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="2dp"
         android:layout_marginBottom="7dp"
-        app:layout_constraintBottom_toTopOf="@+id/txtRecipeDescription"
+        app:layout_constraintBottom_toTopOf="@+id/txtRecipeDirections"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -28,7 +28,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/txtRecipeDescription"
+        android:id="@+id/txtRecipeDirections"
         android:layout_width="408dp"
         android:layout_height="509dp"
         android:layout_marginStart="11dp"
@@ -53,7 +53,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnSaveRecipe"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRecipeDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/txtRecipeDirections" />
 
     <Button
         android:id="@+id/btnSaveRecipe"
@@ -67,6 +67,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnBackToRecipes"
-        app:layout_constraintTop_toBottomOf="@+id/txtRecipeDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/txtRecipeDirections" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
