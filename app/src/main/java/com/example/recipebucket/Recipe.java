@@ -1,23 +1,32 @@
 package com.example.recipebucket;
 
-import android.util.Log;
+import com.google.firebase.firestore.CollectionReference;
 
 public class Recipe {
-    private String directions;
+    String name, instructions;
 
     public Recipe() {
         // Default constructor is required for Firestore
     }
 
-    public Recipe(String directions) {
-        this.directions = directions;
+    public String getName() {
+        return name;
     }
 
-    public String getDirections() {
-        return directions;
+    public Recipe(String name, String instructions) {
+        this.name = name;
+        this.instructions = instructions;
     }
 
-    public void setDescription(String description) {
-        this.directions = description;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
 }

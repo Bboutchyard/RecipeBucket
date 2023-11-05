@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">RecipeBucket</string>
+    <string name="recipeTitle">Recipes</string>
+    <string name="recipeName"></string>
+    <string name="descImg">Image of recipe</string>
+    <string name="btnAddRecipe">Button to add recipe</string>
+    <string name="txtRecipe1">Ass Soup</string>
     <string-array name="measurementsArray">
         <item>oz</item>
         <item>lb</item>
@@ -10,9 +15,4 @@
         <item>qt</item>
         <item>gal</item>
     </string-array>
-    <string name="recipeTitle">Recipes</string>
-    <string name="recipeName"></string>
-    <string name="descImg">Image of recipe</string>
-    <string name="btnAddRecipe">Button to add recipe</string>
-    <string name="txtRecipe1">Ass Soup</string>
 </resources>
