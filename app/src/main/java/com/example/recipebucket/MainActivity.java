@@ -41,13 +41,13 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                // Check if the user is already signed in
+
                 FirebaseUser user = mAuth.getCurrentUser();
                 if (user != null) {
                     Toast.makeText(MainActivity.this, "You've signed in successfully", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(MainActivity.this, recipeList.class));
                 } else {
-                    // Perform the sign-in operation
+
                     mAuth.signInWithEmailAndPassword(email, password)
                             .addOnCompleteListener(MainActivity.this, task -> {
                                 if (task.isSuccessful()) {

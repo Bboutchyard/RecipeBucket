@@ -6,7 +6,7 @@ public class Recipe {
     String name, instructions;
 
     public Recipe() {
-        // Default constructor is required for Firestore
+        
     }
 
     public String getName() {
